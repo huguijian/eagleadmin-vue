@@ -93,7 +93,7 @@ export default {
    */
   getLoginLogList(params = {}) {
     return request({
-      url: '/sys/login-log',
+      url: '/monitor/log/login-log',
       method: 'get',
       params
     })
@@ -104,7 +104,7 @@ export default {
    */
   getOperationLogList(params = {}) {
     return request({
-      url: '/sys/sys-log',
+      url: '/monitor/log/sys-log',
       method: 'get',
       params
     })

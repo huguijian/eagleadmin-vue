@@ -46,7 +46,9 @@
 
       <!-- 操作前置扩展 -->
       <template #operationBeforeExtend="{ record }" v-if="!isRecovery">
-        <a-link v-auth="['/core/dictType/save']" @click="openDictList(record)"
+        <a-link
+          v-auth="['/core/dictCategory/save']"
+          @click="openDictList(record)"
           ><icon-list /> 字典数据</a-link
         >
       </template>
@@ -63,7 +65,7 @@
 <script setup>
 import { onMounted, computed, ref, reactive } from "vue";
 import { Message } from "@arco-design/web-vue";
-import { dictType } from "@/api/system/dict";
+import { dictCategory } from "@/api/system/dict";
 import EditForm from "./edit.vue";
 import DataList from "./dataList.vue";
 
@@ -82,7 +84,7 @@ let isRecovery = computed(() =>
 );
 
 const changeStatus = async (status, id) => {
-  const response = await dictType.changeStatus({ id, status });
+  const response = await dictCategory.changeStatus({ id, status });
   if (response.code === 0) {
     Message.success(response.msg);
     crudRef.value.refresh();
@@ -94,20 +96,20 @@ const openDictList = async (row) => {
 };
 
 const options = reactive({
-  api: dictType.getPageList,
-  recycleApi: dictType.getRecyclePageList,
+  api: dictCategory.getPageList,
+  recycleApi: dictCategory.getRecyclePageList,
   rowSelection: { showCheckedAll: true },
   operationColumnWidth: 240,
   add: {
     show: true,
-    auth: ["/core/dictType/save"],
+    auth: ["/core/dictCategory/save"],
     func: async () => {
       editRef.value?.open();
     },
   },
   edit: {
     show: true,
-    auth: ["/core/dictType/update"],
+    auth: ["/core/dictCategory/update"],
     func: async (record) => {
       editRef.value?.open("edit");
       editRef.value?.setFormData(record);
@@ -115,17 +117,17 @@ const options = reactive({
   },
   delete: {
     show: true,
-    auth: ["/core/dictType/destroy"],
+    auth: ["/core/dictCategory/destroy"],
     func: async (params) => {
-      const resp = await dictType.delete(params);
+      const resp = await dictCategory.delete(params);
       if (resp.code === 0) {
         Message.success(`删除成功！`);
         crudRef.value?.refresh();
       }
     },
-    realAuth: ["/core/dictType/realDestroy"],
+    realAuth: ["/core/dictCategory/realDestroy"],
     realFunc: async (params) => {
-      const resp = await dictType.realDestroy(params);
+      const resp = await dictCategory.realDestroy(params);
       if (resp.code === 0) {
         Message.success(`销毁成功！`);
         crudRef.value?.refresh();
@@ -134,9 +136,9 @@ const options = reactive({
   },
   recovery: {
     show: true,
-    auth: ["/core/dictType/recovery"],
+    auth: ["/core/dictCategory/recovery"],
     func: async (params) => {
-      const resp = await dictType.recovery(params);
+      const resp = await dictCategory.recovery(params);
       if (resp.code === 0) {
         Message.success(`恢复成功！`);
         crudRef.value?.refresh();

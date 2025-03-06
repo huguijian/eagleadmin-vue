@@ -1,7 +1,7 @@
 {
-  "name": "saiadmin-vue",
-  "admin_name": "saiadmin",
-  "version": "3.1.0",
+  "name": "eagleadmin-vue",
+  "admin_name": "eagleadmin",
+  "version": "1.0.0",
   "type": "module",
   "license": "MIT",
   "scripts": {

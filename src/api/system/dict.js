@@ -1,6 +1,6 @@
 import { request } from '@/utils/request.js'
 
-export const dictType = {
+export const dictCategory = {
   /**
    * 获取字典类型，无分页
    * @returns

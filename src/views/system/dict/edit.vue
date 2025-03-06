@@ -40,7 +40,7 @@
 <script setup>
 import { ref, reactive, computed } from "vue";
 import { Message } from "@arco-design/web-vue";
-import { dictType } from "@/api/system/dict";
+import { dictCategory } from "@/api/system/dict";
 
 const emit = defineEmits(["success"]);
 
@@ -99,10 +99,10 @@ const submit = async (done) => {
     if (mode.value === "add") {
       // 添加数据
       data.id = undefined;
-      result = await dictType.save(data);
+      result = await dictCategory.save(data);
     } else {
       // 修改数据
-      result = await dictType.update(data);
+      result = await dictCategory.update(data);
     }
     if (result.code === 0) {
       Message.success("操作成功");
