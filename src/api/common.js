@@ -43,7 +43,7 @@ export default {
    */
   clearAllCache() {
     return request({
-      url: '/core/system/clearAllCache',
+      url: '/config/config/clearAllCache',
       method: 'get'
     })
   },

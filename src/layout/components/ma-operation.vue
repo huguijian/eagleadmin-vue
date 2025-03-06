@@ -2,7 +2,11 @@
   <div class="mr-2 flex justify-end lg:justify-between w-full lg:w-auto">
     <a-space class="mr-0 lg:mr-5" size="medium">
       <a-tooltip :content="$t('sys.store')" v-if="isDev">
-        <a-button :shape="'circle'" class="hidden lg:inline" @click="handleAppStore">
+        <a-button
+          :shape="'circle'"
+          class="hidden lg:inline"
+          @click="handleAppStore"
+        >
           <template #icon>
             <icon-apps :size="16" :rotate="45" />
           </template>
@@ -10,7 +14,11 @@
       </a-tooltip>
 
       <a-tooltip :content="$t('sys.search')">
-        <a-button :shape="'circle'" @click="() => (appStore.searchOpen = true)" class="hidden lg:inline">
+        <a-button
+          :shape="'circle'"
+          @click="() => (appStore.searchOpen = true)"
+          class="hidden lg:inline"
+        >
           <template #icon>
             <icon-search />
           </template>
@@ -25,7 +33,11 @@
       <!--        </a-button>-->
       <!--      </a-tooltip>-->
 
-      <a-tooltip :content="isFullScreen ? $t('sys.closeFullScreen') : $t('sys.fullScreen')">
+      <a-tooltip
+        :content="
+          isFullScreen ? $t('sys.closeFullScreen') : $t('sys.fullScreen')
+        "
+      >
         <a-button :shape="'circle'" class="hidden lg:inline" @click="screen">
           <template #icon>
             <icon-fullscreen-exit v-if="isFullScreen" />
@@ -37,7 +49,12 @@
       <a-trigger trigger="click">
         <a-button :shape="'circle'">
           <template #icon>
-            <a-badge :count="5" dot :dotStyle="{ width: '5px', height: '5px' }" v-if="messageStore.messageList.length > 0">
+            <a-badge
+              :count="5"
+              dot
+              :dotStyle="{ width: '5px', height: '5px' }"
+              v-if="messageStore.messageList.length > 0"
+            >
               <icon-notification />
             </a-badge>
             <icon-notification v-else />
@@ -50,7 +67,11 @@
       </a-trigger>
 
       <a-tooltip :content="$t('sys.pageSetting')">
-        <a-button :shape="'circle'" @click="() => (appStore.settingOpen = true)" class="hidden lg:inline">
+        <a-button
+          :shape="'circle'"
+          @click="() => (appStore.settingOpen = true)"
+          class="hidden lg:inline"
+        >
           <template #icon>
             <icon-settings />
           </template>
@@ -59,98 +80,117 @@
     </a-space>
     <a-dropdown @select="handleSelect" trigger="hover">
       <a-avatar class="bg-blue-500 text-3xl avatar" style="top: -1px">
-        <img :src="userStore.user && userStore.user.avatar ? $tool.showFile(imageHost + userStore.user.avatar) : $url + 'avatar.jpg'" />
+        <img
+          :src="
+            userStore.user && userStore.user.avatar
+              ? $tool.showFile(imageHost + userStore.user.avatar)
+              : $url + 'avatar.jpg'
+          "
+        />
       </a-avatar>
 
       <template #content>
-        <a-doption value="userCenter"><icon-user /> {{ $t('sys.userCenter') }}</a-doption>
-        <a-doption value="clearCache"><icon-delete /> {{ $t('sys.clearCache') }}</a-doption>
+        <a-doption value="userCenter"
+          ><icon-user /> {{ $t("sys.userCenter") }}</a-doption
+        >
+        <a-doption value="clearCache"
+          ><icon-delete /> {{ $t("sys.clearCache") }}</a-doption
+        >
         <a-divider style="margin: 5px 0" />
-        <a-doption value="logout"><icon-poweroff /> {{ $t('sys.logout') }}</a-doption>
+        <a-doption value="logout"
+          ><icon-poweroff /> {{ $t("sys.logout") }}</a-doption
+        >
       </template>
     </a-dropdown>
 
-    <a-modal v-model:visible="showLogoutModal" @ok="handleLogout" @cancel="handleLogoutCancel">
-      <template #title>{{ $t('sys.logoutAlert') }}</template>
-      <div>{{ $t('sys.logoutMessage') }}</div>
+    <a-modal
+      v-model:visible="showLogoutModal"
+      @ok="handleLogout"
+      @cancel="handleLogoutCancel"
+    >
+      <template #title>{{ $t("sys.logoutAlert") }}</template>
+      <div>{{ $t("sys.logoutMessage") }}</div>
     </a-modal>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { useAppStore, useUserStore, useMessageStore } from '@/store'
-import tool from '@/utils/tool'
-import MessageNotification from './components/message-notification.vue'
-import { useRouter } from 'vue-router'
-import { useI18n } from 'vue-i18n'
-import { Message } from '@arco-design/web-vue'
-import { Push } from '@/utils/push-vue'
-import { info } from '@/utils/common'
-import commonApi from '@/api/common'
+import { ref } from "vue";
+import { useAppStore, useUserStore, useMessageStore } from "@/store";
+import tool from "@/utils/tool";
+import MessageNotification from "./components/message-notification.vue";
+import { useRouter } from "vue-router";
+import { useI18n } from "vue-i18n";
+import { Message } from "@arco-design/web-vue";
+import { Push } from "@/utils/push-vue";
+import { info } from "@/utils/common";
+import commonApi from "@/api/common";
 
-const { t } = useI18n()
-const messageStore = useMessageStore()
-const userStore = useUserStore()
-const appStore = useAppStore()
-const setting = ref(null)
-const router = useRouter()
-const isFullScreen = ref(false)
-const showLogoutModal = ref(false)
-const isDev = ref(import.meta.env.DEV)
+const { t } = useI18n();
+const messageStore = useMessageStore();
+const userStore = useUserStore();
+const appStore = useAppStore();
+const setting = ref(null);
+const router = useRouter();
+const isFullScreen = ref(false);
+const showLogoutModal = ref(false);
+const isDev = ref(import.meta.env.DEV);
 const handleSelect = async (name) => {
-  if (name === 'userCenter') {
-    router.push({ name: 'userCenter' })
+  if (name === "userCenter") {
+    router.push({ name: "userCenter" });
   }
-  if (name === 'clearCache') {
-    const res = await commonApi.clearAllCache()
-    tool.local.remove('dictData')
-    res.code === 200 && Message.success(res.message)
+  if (name === "clearCache") {
+    const res = await commonApi.clearAllCache();
+    tool.local.remove("dictData");
+    res.code === 0 && Message.success(res.msg);
   }
-  if (name === 'logout') {
-    showLogoutModal.value = true
-    document.querySelector('#app').style.filter = 'grayscale(1)'
+  if (name === "logout") {
+    showLogoutModal.value = true;
+    document.querySelector("#app").style.filter = "grayscale(1)";
   }
-}
+};
 
 const imageHost = import.meta.env.VITE_APP_IMAGE_HOST;
 
 const handleAppStore = async () => {
-  window.open('https://saas.saithink.top/#/appStore')
-}
+  window.open("https://saas.saithink.top/#/appStore");
+};
 
 const handleLogout = async () => {
-  await userStore.logout()
-  document.querySelector('#app').style.filter = 'grayscale(0)'
-  router.push({ name: 'login' })
-}
+  await userStore.logout();
+  document.querySelector("#app").style.filter = "grayscale(0)";
+  router.push({ name: "login" });
+};
 
 const handleLogoutCancel = () => {
-  document.querySelector('#app').style.filter = 'grayscale(0)'
-}
+  document.querySelector("#app").style.filter = "grayscale(0)";
+};
 
 const screen = () => {
-  tool.screen(document.documentElement)
-  isFullScreen.value = !isFullScreen.value
-}
+  tool.screen(document.documentElement);
+  isFullScreen.value = !isFullScreen.value;
+};
 
 if (appStore.ws) {
-  const env = import.meta.env
-  const baseURL = env.VITE_APP_OPEN_PROXY === 'true' ? env.VITE_APP_PROXY_PREFIX : env.VITE_APP_BASE_URL
+  const env = import.meta.env;
+  const baseURL =
+    env.VITE_APP_OPEN_PROXY === "true"
+      ? env.VITE_APP_PROXY_PREFIX
+      : env.VITE_APP_BASE_URL;
   // 建立连接
   var connection = new Push({
-    url: 'ws://127.0.0.1:3131', // websocket地址
-    app_key: '231ec75fb0f7e5f26fb0ded56c2bae9d',
-    auth: baseURL + '/plugin/webman/push/auth',
-  })
+    url: "ws://127.0.0.1:3131", // websocket地址
+    app_key: "231ec75fb0f7e5f26fb0ded56c2bae9d",
+    auth: baseURL + "/plugin/webman/push/auth",
+  });
   // 创建监听频道
-  var user_channel = connection.subscribe('saiadmin')
+  var user_channel = connection.subscribe("saiadmin");
   // 当saiadmin频道有message事件的消息时
-  user_channel.on('message', function (message) {
+  user_channel.on("message", function (message) {
     // message是消息内容
-    info('新消息提示', '您有新的消息，请注意查收！')
-    messageStore.messageList = message.data
-  })
+    info("新消息提示", "您有新的消息，请注意查收！");
+    messageStore.messageList = message.data;
+  });
 }
 </script>
 <style scoped>
