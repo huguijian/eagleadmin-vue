@@ -1,16 +1,16 @@
 <template>
-  <a-form class="w-full md:w-full mt-3" :model="userInfo" @submit="modifyInfo">
+  <a-form class="w-full md:w-full mt-3" :model="formData" @submit="modifyInfo">
     <a-form-item label="账户名" label-col-flex="80px">
-      <a-input disabled :default-value="userInfo.user_name" allow-clear />
+      <a-input disabled :default-value="formData.user_name" allow-clear />
     </a-form-item>
     <a-form-item label="昵称" label-col-flex="80px">
-      <a-input v-model="userInfo.nick_name" allow-clear />
+      <a-input v-model="formData.nick_name" allow-clear />
     </a-form-item>
     <a-form-item label="手机" label-col-flex="80px">
-      <a-input v-model="userInfo.phone" allow-clear />
+      <a-input v-model="formData.phone" allow-clear />
     </a-form-item>
     <a-form-item label="邮箱" label-col-flex="80px">
-      <a-input v-model="userInfo.email" allow-clear />
+      <a-input v-model="formData.email" allow-clear />
     </a-form-item>
     <!--
     <a-form-item label="个人签名" label-col-flex="80px">
@@ -30,9 +30,12 @@ import { Message } from "@arco-design/web-vue";
 import user from "@/api/system/user";
 
 const userStore = useUserStore();
-
-const userInfo = reactive({
-  ...userStore.user,
+const formData = reactive({
+  id: userStore?.user?.id || "",
+  user_name: userStore?.user?.user_name || "",
+  nick_name: userStore.user ? userStore.user.nick_name : "",
+  phone: userStore?.user?.phone || "",
+  email: userStore?.user?.email || "",
 });
 
 const modifyInfo = async (data) => {
