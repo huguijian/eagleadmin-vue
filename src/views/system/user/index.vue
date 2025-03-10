@@ -261,7 +261,7 @@ const options = reactive({
   },
   delete: {
     show: true,
-    auth: ["/admin/user/delete"],
+    auth: ["/auth/user/delete"],
     func: async (params) => {
       const resp = await api.delete(params);
       if (resp.code === 0) {
