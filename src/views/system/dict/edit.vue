@@ -19,8 +19,8 @@
       <a-form-item label="字典名称" field="name">
         <a-input v-model="formData.name" placeholder="请输入字典名称" />
       </a-form-item>
-      <a-form-item label="字典标识" field="code">
-        <a-input v-model="formData.code" placeholder="请输入字典标识" />
+      <a-form-item label="字典标识" field="dict_code">
+        <a-input v-model="formData.dict_code" placeholder="请输入字典标识" />
       </a-form-item>
       <a-form-item label="状态" field="status">
         <sa-radio
@@ -58,7 +58,7 @@ let title = computed(() => {
 const formData = reactive({
   id: "",
   name: "",
-  code: "",
+  dict_code: "",
   status: 1,
   remark: "",
 });
@@ -66,7 +66,7 @@ const formData = reactive({
 // 验证规则
 const rules = {
   name: [{ required: true, message: "字典名称不能为空" }],
-  code: [{ required: true, message: "字典标识不能为空" }],
+  dict_code: [{ required: true, message: "字典标识不能为空" }],
 };
 
 // 打开弹框

@@ -67,6 +67,7 @@ const searchForm = ref({
   category_id: null,
   dict_name: "",
   dict_value: "",
+  dict_code: "",
   status: "",
   orderBy: "sort",
   orderType: "desc",
@@ -83,6 +84,7 @@ const changeStatus = async (status, id) => {
 const open = (row) => {
   currentRow.value = row;
   searchForm.value.category_id = row.id;
+  searchForm.value.dict_code = row.dict_code;
   crudRef.value?.refresh();
   visible.value = true;
 };
@@ -98,7 +100,7 @@ const options = reactive({
       editRef.value?.open();
       editRef.value?.setFormData({
         category_id: searchForm.value.category_id,
-        code: searchForm.value.code,
+        dict_code: searchForm.value.dict_code,
       });
     },
   },

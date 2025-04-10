@@ -33,9 +33,9 @@
       <!-- 字典标识列 -->
       <template #code="{ record }">
         <a-tooltip content="点击查看字典数据" v-if="!isRecovery">
-          <a-link @click="openDictList(record)">{{ record.code }}</a-link>
+          <a-link @click="openDictList(record)">{{ record.dict_code }}</a-link>
         </a-tooltip>
-        <span v-else>{{ record.code }}</span>
+        <span v-else>{{ record.dict_code }}</span>
       </template>
       <template #status="{ record }">
         <sa-switch
@@ -75,7 +75,7 @@ const editRef = ref();
 
 const searchForm = ref({
   name: "",
-  code: "",
+  dict_code: "",
   status: "",
 });
 
