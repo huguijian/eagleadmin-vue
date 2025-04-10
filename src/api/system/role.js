@@ -7,7 +7,7 @@ export default {
    */
   getPageList(params = {}) {
     return request({
-      url: '/auth/role/select',
+      url: '/core/auth/role/select',
       method: 'get',
       params
     })
@@ -19,7 +19,7 @@ export default {
    */
   getRecyclePageList(params = {}) {
     return request({
-      url: '/auth/role/recycle',
+      url: '/core/auth/role/recycle',
       method: 'get',
       params
     })
@@ -31,7 +31,7 @@ export default {
    */
   getMenuByRole(id) {
     return request({
-      url: '/auth/role/get-menu-by-role?id=' + id,
+      url: '/core/auth/role/get-menu-by-role?id=' + id,
       method: 'get'
     })
   },
@@ -42,7 +42,7 @@ export default {
    */
   getDeptByRole(id) {
     return request({
-      url: '/auth/role/get-dept-by-role?id=' + id,
+      url: '/core/auth/role/get-dept-by-role?id=' + id,
       method: 'get'
     })
   },
@@ -53,7 +53,7 @@ export default {
    */
   insert(data = {}) {
     return request({
-      url: '/auth/role/insert',
+      url: '/core/auth/role/insert',
       method: 'post',
       data
     })
@@ -65,7 +65,7 @@ export default {
    */
   delete(data) {
     return request({
-      url: '/auth/role/delete',
+      url: '/core/auth/role/delete',
       method: 'delete',
       data
     })
@@ -89,7 +89,7 @@ export default {
    */
   realDestroy(data) {
     return request({
-      url: '/auth/role/realDestroy',
+      url: '/core/auth/role/realDestroy',
       method: 'delete',
       data
     })
@@ -101,7 +101,7 @@ export default {
    */
   update(id, data = {}) {
     return request({
-      url: '/auth/role/update?id=' + id,
+      url: '/core/auth/role/update?id=' + id,
       method: 'post',
       data
     })
@@ -113,7 +113,7 @@ export default {
    */
   updateMenuPermission(id, data) {
     return request({
-      url: '/auth/role/update-menu-permission?id=' + id,
+      url: '/core/auth/role/update-menu-permission?id=' + id,
       method: 'post',
       data
     })
@@ -125,7 +125,7 @@ export default {
    */
   updateDataPermission(id, data) {
     return request({
-      url: '/auth/role/update-data-permission?id=' + id,
+      url: '/core/auth/role/update-data-permission?id=' + id,
       method: 'post',
       data
     })
@@ -137,7 +137,7 @@ export default {
    */
   changeStatus(params = {}) {
     return request({
-      url: '/auth/role/changeStatus',
+      url: '/core/auth/role/changeStatus',
       method: 'post',
       data: params
     })

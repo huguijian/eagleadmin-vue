@@ -7,7 +7,7 @@ export default {
    */
   getPageList(params = {}) {
     return request({
-      url: '/auth/post/select',
+      url: '/core/auth/post/select',
       method: 'get',
       params
     })
@@ -19,7 +19,7 @@ export default {
    */
   getRecyclePageList(params = {}) {
     return request({
-      url: '/auth/post/recycle',
+      url: '/core/auth/post/recycle',
       method: 'get',
       params
     })
@@ -31,7 +31,7 @@ export default {
    */
   save(params = {}) {
     return request({
-      url: '/auth/post/insert',
+      url: '/core/auth/post/insert',
       method: 'post',
       data: params
     })
@@ -43,7 +43,7 @@ export default {
    */
   delete(data) {
     return request({
-      url: '/auth/post/delete',
+      url: '/core/auth/post/delete',
       method: 'delete',
       data
     })
@@ -55,7 +55,7 @@ export default {
    */
   recovery(data) {
     return request({
-      url: '/auth/post/recovery',
+      url: '/core/auth/post/recovery',
       method: 'post',
       data
     })
@@ -67,7 +67,7 @@ export default {
    */
   realDestroy(data) {
     return request({
-      url: '/auth/post/realDestroy',
+      url: '/core/auth/post/realDestroy',
       method: 'delete',
       data
     })
@@ -79,7 +79,7 @@ export default {
    */
   update(id, data = {}) {
     return request({
-      url: '/auth/post/update',
+      url: '/core/auth/post/update',
       method: 'post',
       data
     })
@@ -91,7 +91,7 @@ export default {
    */
   changeStatus(data = {}) {
     return request({
-      url: '/auth/post/changeStatus',
+      url: '/core/auth/post/changeStatus',
       method: 'post',
       data
     })

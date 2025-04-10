@@ -107,7 +107,7 @@ const handlerClick = (value) => {
 const setData = async (roleId) => {
   loading.value = true;
   const deptResponse = await commonApi.commonGet(
-    "/auth/dept/select?tree=true&auth=true"
+    "/core/auth/dept/select?tree=true&auth=true"
   );
   deptList.value = deptResponse.data.items;
   const roleResponse = await role.getDeptByRole(roleId);

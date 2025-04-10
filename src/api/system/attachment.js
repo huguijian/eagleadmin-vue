@@ -7,7 +7,7 @@ export default {
 	 */
 	getPageList(params = {}) {
 		return request({
-			url: '/data/attachment/select',
+			url: '/core/data/attachment/select',
 			method: 'get',
 			params,
 		})
@@ -19,7 +19,7 @@ export default {
 	 */
 	getRecyclePageList(params = {}) {
 		return request({
-			url: '/data/attachment/recycle',
+			url: '/core/data/attachment/recycle',
 			method: 'get',
 			params,
 		})
@@ -31,7 +31,7 @@ export default {
 	 */
 	deletes(data) {
 		return request({
-			url: '/data/attachment/delete',
+			url: '/core/data/attachment/delete',
 			method: 'delete',
 			data,
 		})
@@ -43,7 +43,7 @@ export default {
 	 */
 	recoverys(data) {
 		return request({
-			url: '/data/attachment/recovery',
+			url: '/core/data/attachment/recovery',
 			method: 'post',
 			data,
 		})
@@ -55,7 +55,7 @@ export default {
 	 */
 	realDestroy(data) {
 		return request({
-			url: '/data/attachment/realDestroy',
+			url: '/core/data/attachment/realDestroy',
 			method: 'delete',
 			data,
 		})

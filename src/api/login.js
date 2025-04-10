@@ -8,7 +8,7 @@ export default {
 	getCaptch() {
 		// return import.meta.env.VITE_APP_PROXY_PREFIX + '/core/captcha?' + Date.parse(new Date().toString())
 		return request({
-			url: '/admin/get-captcha',
+			url: '/core/admin/get-captcha',
 			method: 'get',
 		})
 	},
@@ -20,7 +20,7 @@ export default {
 	 */
 	login(params = {}) {
 		return request({
-			url: '/admin/login',
+			url: '/core/admin/login',
 			method: 'post',
 			data: params,
 		})
@@ -33,7 +33,7 @@ export default {
 	 */
 	logout(params = {}) {
 		return request({
-			url: '/admin/logout',
+			url: '/core/admin/logout',
 			method: 'post',
 			data: params,
 		})
@@ -46,7 +46,7 @@ export default {
 	 */
 	getInfo(params = {}) {
 		return request({
-			url: '/auth/user/login-info',
+			url: '/core/auth/user/login-info',
 			method: 'get',
 			data: params,
 		})

@@ -7,7 +7,7 @@ export default {
    */
   getPageList(params = {}) {
     return request({
-      url: '/auth/user/select',
+      url: '/core/auth/user/select',
       method: 'get',
       params
     })
@@ -19,7 +19,7 @@ export default {
    */
   getRecyclePageList(params = {}) {
     return request({
-      url: '/auth/user/recycle',
+      url: '/core/auth/user/recycle',
       method: 'get',
       params
     })
@@ -31,7 +31,7 @@ export default {
    */
   read(id) {
     return request({
-      url: '/auth/user/update?id=' + id,
+      url: '/core/auth/user/update?id=' + id,
       method: 'get'
     })
   },
@@ -42,7 +42,7 @@ export default {
    */
   insert(params = {}) {
     return request({
-      url: '/auth/user/insert',
+      url: '/core/auth/user/insert',
       method: 'post',
       data: params
     })
@@ -54,7 +54,7 @@ export default {
    */
   delete(data) {
     return request({
-      url: '/auth/user/delete',
+      url: '/core/auth/user/delete',
       method: 'delete',
       data
     })
@@ -66,7 +66,7 @@ export default {
    */
   recovery(data) {
     return request({
-      url: '/auth/user/recovery',
+      url: '/core/auth/user/recovery',
       method: 'post',
       data
     })
@@ -78,7 +78,7 @@ export default {
    */
   realDestroy(data) {
     return request({
-      url: '/auth/user/realDestroy',
+      url: '/core/auth/user/realDestroy',
       method: 'delete',
       data
     })
@@ -90,7 +90,7 @@ export default {
    */
   update(id, data = {}) {
     return request({
-      url: '/auth/user/update?id=' + id,
+      url: '/core/auth/user/update?id=' + id,
       method: 'post',
       data
     })
@@ -102,7 +102,7 @@ export default {
    */
   changeStatus(data = {}) {
     return request({
-      url: '/auth/user/change-status',
+      url: '/core/auth/user/change-status',
       method: 'post',
       data
     })
@@ -114,7 +114,7 @@ export default {
    */
   clearCache(params = {}) {
     return request({
-      url: '/auth/user/clearCache',
+      url: '/core/auth/user/clearCache',
       method: 'post',
       data: params
     })
@@ -126,7 +126,7 @@ export default {
    */
   setHomePage(data = {}) {
     return request({
-      url: '/auth/user/setHomePage',
+      url: '/core/auth/user/setHomePage',
       method: 'post',
       data
     })
@@ -138,7 +138,7 @@ export default {
    */
   initUserPassword(data) {
     return request({
-      url: '/auth/user/init-password',
+      url: '/core/auth/user/init-password',
       method: 'post',
       data
     })
@@ -150,7 +150,7 @@ export default {
    */
   updateInfo(data = {}) {
     return request({
-      url: '/auth/user/update',
+      url: '/core/auth/user/update',
       method: 'post',
       data
     })
@@ -162,7 +162,7 @@ export default {
    */
   modifyPassword(data = {}) {
     return request({
-      url: '/auth/user/modifypassword',
+      url: '/core/auth/user/modifypassword',
       method: 'post',
       data
     })

@@ -99,7 +99,7 @@ const rules = {
 // 初始化页面数据
 const initPage = async () => {
   const resp = await await commonApi.commonGet(
-    "/auth/dept/select?tree=true&filter=false"
+    "/core/auth/dept/select?tree=true&filter=false"
   );
   if (userInfo.id === 1) {
     deptData.value = [

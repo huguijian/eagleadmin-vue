@@ -187,13 +187,13 @@ const open = async (type = "add", id = "") => {
 
 // 初始化页面数据
 const initPage = async () => {
-  const deptResp = await commonApi.commonGet("/auth/dept/select");
+  const deptResp = await commonApi.commonGet("/core/auth/dept/select");
   deptData.value = deptResp.data.items;
 
-  const roleResp = await commonApi.commonGet("/auth/role/select");
+  const roleResp = await commonApi.commonGet("/core/auth/role/select");
   roleData.value = roleResp.data.items;
 
-  const postResp = await commonApi.commonGet("/auth/post/select");
+  const postResp = await commonApi.commonGet("/core/auth/post/select");
   postData.value = postResp.data.items;
 };
 

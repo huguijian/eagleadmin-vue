@@ -7,7 +7,7 @@ export default {
    */
   getConfigList(params) {
     return request({
-      url: '/config/config/select',
+      url: '/core/config/config/select',
       method: 'get',
       params
     })
@@ -19,7 +19,7 @@ export default {
    */
   clearCache(data = {}) {
     return request({
-      url: '/config/config/clearCache',
+      url: '/core/config/config/clearCache',
       method: 'post',
       data
     })
@@ -31,7 +31,7 @@ export default {
    */
   delete(data) {
     return request({
-      url: '/config/config/delete',
+      url: '/core/config/config/delete',
       method: 'delete',
       data
     })
@@ -43,7 +43,7 @@ export default {
    */
   save(data = {}) {
     return request({
-      url: '/config/config/insert',
+      url: '/core/config/config/insert',
       method: 'post',
       data
     })
@@ -55,7 +55,7 @@ export default {
    */
   update(id, data = {}) {
     return request({
-      url: '/config/config/update?id=' + id,
+      url: '/core/config/config/update?id=' + id,
       method: 'post',
       data
     })
@@ -67,7 +67,7 @@ export default {
    */
   updateByKeys(data) {
     return request({
-      url: '/config/config/updateByKeys',
+      url: '/core/config/config/updateByKeys',
       method: 'post',
       data
     })
@@ -79,7 +79,7 @@ export default {
    */
   batchUpdate(data) {
     return request({
-      url: '/config/config/batchUpdate',
+      url: '/core/config/config/batchUpdate',
       method: 'post',
       data
     })
@@ -91,7 +91,7 @@ export default {
    */
   getConfigGroupList(params = {}) {
     return request({
-      url: '/config/config-group/select',
+      url: '/core/config/config-group/select',
       method: 'get',
       params
     })
@@ -103,7 +103,7 @@ export default {
    */
   saveConfigGroup(data = {}) {
     return request({
-      url: '/config/config-group/insert',
+      url: '/core/config/config-group/insert',
       method: 'post',
       data
     })
@@ -115,7 +115,7 @@ export default {
    */
   updateConfigGroup(id, data = {}) {
     return request({
-      url: '/config/config-group/update?id=' + id,
+      url: '/core/config/config-group/update?id=' + id,
       method: 'post',
       data
     })
@@ -127,7 +127,7 @@ export default {
    */
   deleteConfigGroup(data = {}) {
     return request({
-      url: '/config/config-group/delete',
+      url: '/core/config/config-group/delete',
       method: 'delete',
       data
     })
@@ -139,7 +139,7 @@ export default {
    */
   testEmail(data = {}) {
     return request({
-      url: '/config/config-group/email',
+      url: '/core/config/config-group/email',
       method: 'post',
       data
     })

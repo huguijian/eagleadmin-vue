@@ -99,7 +99,7 @@ const open = async (type = "add") => {
 // 初始化页面数据
 const initPage = async () => {
   const resp = await await commonApi.commonGet(
-    "/auth/role/select?tree=true&filter=false"
+    "/core/auth/role/select?tree=true&filter=false"
   );
   roleData.value = resp.data.items;
 };

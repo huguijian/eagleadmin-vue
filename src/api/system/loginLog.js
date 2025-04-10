@@ -8,7 +8,7 @@ export default {
    */
   getPageList(params = {}) {
     return request({
-      url: '/monitor/log/loginLog',
+      url: '/core/monitor/log/loginLog',
       method: 'get',
       params
     })
@@ -20,7 +20,7 @@ export default {
    */
   deletes(data) {
     return request({
-      url: '/monitor/log/deleteLoginLog',
+      url: '/core/monitor/log/deleteLoginLog',
       method: 'delete',
       data
     })

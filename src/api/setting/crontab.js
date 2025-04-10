@@ -7,7 +7,7 @@ export default {
    */
   getPageList(params = {}) {
     return request({
-      url: '/tool/crontab/select',
+      url: '/core/tool/crontab/select',
       method: 'get',
       params
     })
@@ -19,7 +19,7 @@ export default {
    */
   getLogPageList(params = {}) {
     return request({
-      url: '/tool/crontab/logPageList',
+      url: '/core/tool/crontab/logPageList',
       method: 'get',
       params
     })
@@ -31,7 +31,7 @@ export default {
    */
   deleteLog(data) {
     return request({
-      url: '/tool/crontab/deleteCrontabLog',
+      url: '/core/tool/crontab/deleteCrontabLog',
       method: 'delete',
       data
     })
@@ -43,7 +43,7 @@ export default {
    */
   run(data = {}) {
     return request({
-      url: '/tool/crontab/run',
+      url: '/core/tool/crontab/run',
       method: 'post',
       data
     })
@@ -55,7 +55,7 @@ export default {
    */
   save(data = {}) {
     return request({
-      url: '/tool/crontab/save',
+      url: '/core/tool/crontab/save',
       method: 'post',
       data
     })
@@ -67,7 +67,7 @@ export default {
    */
   delete(data) {
     return request({
-      url: '/tool/crontab/destroy',
+      url: '/core/tool/crontab/destroy',
       method: 'delete',
       data
     })
@@ -79,7 +79,7 @@ export default {
    */
   update(data) {
     return request({
-      url: '/tool/crontab/update',
+      url: '/core/tool/crontab/update',
       method: 'post',
       data
     })
@@ -91,7 +91,7 @@ export default {
    */
   changeStatus(data = {}) {
     return request({
-      url: '/tool/crontab/changeStatus',
+      url: '/core/tool/crontab/changeStatus',
       method: 'post',
       data
     })

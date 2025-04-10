@@ -7,7 +7,7 @@ export default {
    */
   getPageList(params = {}) {
     return request({
-      url: '/auth/dept/select',
+      url: '/core/auth/dept/select',
       method: 'get',
       params
     })
@@ -19,7 +19,7 @@ export default {
    */
   getRecyclePageList(params = {}) {
     return request({
-      url: '/auth/dept/recycle',
+      url: '/core/auth/dept/recycle',
       method: 'get',
       params
     })
@@ -31,7 +31,7 @@ export default {
    */
   getLeaderList(params = {}) {
     return request({
-      url: '/auth/dept/leaders',
+      url: '/core/auth/dept/leaders',
       method: 'get',
       params
     })
@@ -43,7 +43,7 @@ export default {
    */
   addLeader(data = {}) {
     return request({
-      url: '/auth/dept/addLeader',
+      url: '/core/auth/dept/addLeader',
       method: 'post',
       data
     })
@@ -55,7 +55,7 @@ export default {
    */
   delLeader(data = {}) {
     return request({
-      url: '/auth/dept/delLeader',
+      url: '/core/auth/dept/delLeader',
       method: 'delete',
       data
     })
@@ -67,7 +67,7 @@ export default {
    */
   tree() {
     return request({
-      url: '/auth/dept/index?tree=true',
+      url: '/core/auth/dept/index?tree=true',
       method: 'get'
     })
   },
@@ -78,7 +78,7 @@ export default {
    */
   save(params = {}) {
     return request({
-      url: '/auth/dept/insert',
+      url: '/core/auth/dept/insert',
       method: 'post',
       data: params
     })
@@ -90,7 +90,7 @@ export default {
    */
   delete(data) {
     return request({
-      url: '/auth/dept/delete',
+      url: '/core/auth/dept/delete',
       method: 'delete',
       data
     })
@@ -102,7 +102,7 @@ export default {
    */
   recovery(data) {
     return request({
-      url: '/auth/dept/recovery',
+      url: '/core/auth/dept/recovery',
       method: 'post',
       data
     })
@@ -114,7 +114,7 @@ export default {
    */
   realDestroy(data) {
     return request({
-      url: '/auth/dept/real-destroy',
+      url: '/core/auth/dept/real-destroy',
       method: 'delete',
       data
     })
@@ -126,7 +126,7 @@ export default {
    */
   update(params = {}) {
     return request({
-      url: '/auth/dept/update',
+      url: '/core/auth/dept/update',
       method: 'post',
       data: params
     })
@@ -138,7 +138,7 @@ export default {
    */
   changeStatus(data = {}) {
     return request({
-      url: '/auth/dept/changeStatus',
+      url: '/core/auth/dept/changeStatus',
       method: 'post',
       data
     })

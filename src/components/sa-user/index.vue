@@ -126,13 +126,19 @@ const open = async () => {
 };
 
 const initPage = async () => {
-  const deptResp = await commonApi.commonGet("/auth/dept/select?tree=true");
+  const deptResp = await commonApi.commonGet(
+    "/core/auth/dept/select?tree=true"
+  );
   deptData.value = deptResp.data.items;
 
-  const roleResp = await commonApi.commonGet("/auth/role/select?tree=true");
+  const roleResp = await commonApi.commonGet(
+    "/core/auth/role/select?tree=true"
+  );
   roleData.value = roleResp.data.items;
 
-  const postResp = await commonApi.commonGet("/auth/post/select?saiType=all");
+  const postResp = await commonApi.commonGet(
+    "/core/auth/post/select?saiType=all"
+  );
   postData.value = postResp.data.items;
 };
 

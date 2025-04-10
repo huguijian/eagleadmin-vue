@@ -7,7 +7,7 @@ export const dictCategory = {
    */
   getPageList(params = {}) {
     return request({
-      url: '/data/dictCategory/select',
+      url: '/core/data/dictCategory/select',
       method: 'get',
       params
     })
@@ -19,7 +19,7 @@ export const dictCategory = {
    */
   getRecyclePageList(params = {}) {
     return request({
-      url: '/data/dictCategory/recycle',
+      url: '/core/data/dictCategory/recycle',
       method: 'get',
       params
     })
@@ -31,7 +31,7 @@ export const dictCategory = {
    */
   save(params = {}) {
     return request({
-      url: '/data/dictCategory/insert',
+      url: '/core/data/dictCategory/insert',
       method: 'post',
       data: params
     })
@@ -43,7 +43,7 @@ export const dictCategory = {
    */
   delete(data) {
     return request({
-      url: '/data/dictCategory/destroy',
+      url: '/core/data/dictCategory/destroy',
       method: 'delete',
       data
     })
@@ -55,7 +55,7 @@ export const dictCategory = {
    */
   recovery(data) {
     return request({
-      url: '/data/dictCategory/recovery',
+      url: '/core/data/dictCategory/recovery',
       method: 'post',
       data
     })
@@ -67,7 +67,7 @@ export const dictCategory = {
    */
   realDestroy(data) {
     return request({
-      url: '/data/dictCategory/realDestroy',
+      url: '/core/data/dictCategory/realDestroy',
       method: 'delete',
       data
     })
@@ -79,7 +79,7 @@ export const dictCategory = {
    */
   update(data) {
     return request({
-      url: '/data/dictCategory/update',
+      url: '/core/data/dictCategory/update',
       method: 'post',
       data
     })
@@ -91,7 +91,7 @@ export const dictCategory = {
    */
   changeStatus(data = {}) {
     return request({
-      url: '/data/dictCategory/changeStatus',
+      url: '/core/data/dictCategory/changeStatus',
       method: 'post',
       data
     })
@@ -106,7 +106,7 @@ export const dict = {
    */
   getDict(code) {
     return request({
-      url: '/data/dict/index?code=' + code,
+      url: '/core/data/dict/index?code=' + code,
       method: 'get'
     })
   },
@@ -117,7 +117,7 @@ export const dict = {
    */
   getPageList(params = {}) {
     return request({
-      url: '/data/dict/select',
+      url: '/core/data/dict/select',
       method: 'get',
       params
     })
@@ -129,7 +129,7 @@ export const dict = {
    */
   saveDictData(data = {}) {
     return request({
-      url: '/data/dict/insert',
+      url: '/core/data/dict/insert',
       method: 'post',
       data
     })
@@ -141,7 +141,7 @@ export const dict = {
    */
   deletesDictData(data) {
     return request({
-      url: '/data/dict/delete',
+      url: '/core/data/dict/delete',
       method: 'delete',
       data
     })
@@ -153,7 +153,7 @@ export const dict = {
    */
   updateDictData(data) {
     return request({
-      url: '/data/dict/update',
+      url: '/core/data/dict/update',
       method: 'post',
       data
     })
@@ -165,7 +165,7 @@ export const dict = {
    */
   clearCache() {
     return request({
-      url: '/data/dict/clearCache',
+      url: '/core/data/dict/clearCache',
       method: 'post'
     })
   },
@@ -176,7 +176,7 @@ export const dict = {
    */
   changeStatus(data = {}) {
     return request({
-      url: '/data/dict/changeStatus',
+      url: '/core/data/dict/changeStatus',
       method: 'post',
       data
     })

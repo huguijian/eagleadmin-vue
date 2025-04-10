@@ -303,7 +303,7 @@ const columns = reactive([
 ]);
 
 const initPage = async () => {
-  const resp = await commonApi.commonGet("/auth/dept/select");
+  const resp = await commonApi.commonGet("/core/auth/dept/select");
   resp.data.items.map((item) => {
     depts.value.push(item);
   });

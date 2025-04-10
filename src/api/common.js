@@ -7,7 +7,7 @@ export default {
    */
   getUserList(params = {}) {
     return request({
-      url: '/auth/user/select',
+      url: '/core/auth/user/select',
       method: 'get',
       params
     })
@@ -19,7 +19,7 @@ export default {
    */
   getUserInfoByIds(data = {}) {
     return request({
-      url: '/auth/user/getUserInfoByIds',
+      url: '/core/auth/user/getUserInfoByIds',
       method: 'post',
       data
     })
@@ -43,7 +43,7 @@ export default {
    */
   clearAllCache() {
     return request({
-      url: '/config/config/clearAllCache',
+      url: '/core/config/config/clearAllCache',
       method: 'get'
     })
   },
@@ -54,7 +54,7 @@ export default {
    */
   uploadImage(data = {}) {
     return request({
-      url: '/common/upload',
+      url: '/core/common/upload',
       method: 'post',
       timeout: 30000,
       // headers: { 'Content-Type': 'multipart/form-data' },
@@ -93,7 +93,7 @@ export default {
    */
   getLoginLogList(params = {}) {
     return request({
-      url: '/monitor/log/login-log',
+      url: '/core/monitor/log/login-log',
       method: 'get',
       params
     })
@@ -104,7 +104,7 @@ export default {
    */
   getOperationLogList(params = {}) {
     return request({
-      url: '/monitor/log/sys-log',
+      url: '/core/monitor/log/sys-log',
       method: 'get',
       params
     })
@@ -153,7 +153,7 @@ export default {
    */
   getDict(code) {
     return request({
-      url: '/data/dict-category/data?code=' + code,
+      url: '/core/data/dict-category/data?code=' + code,
       method: 'get'
     })
   },
@@ -163,7 +163,7 @@ export default {
    */
   dictAll() {
     return request({
-      url: '/data/dict-category/dict-all',
+      url: '/core/data/dict-category/dict-all',
       method: 'get'
     })
   },
@@ -181,7 +181,7 @@ export default {
 
   downloadById(params) {
     return request({
-      url: '/data/attachment/downloadById',
+      url: '/core/data/attachment/downloadById',
       responseType: 'blob',
       method: 'get',
       params
@@ -190,7 +190,7 @@ export default {
 
   downloadByHash(hash) {
     return request({
-      url: '/data/attachment/downloadByHash/' + hash,
+      url: '/core/data/attachment/downloadByHash/' + hash,
       responseType: 'blob',
       method: 'get'
     })
