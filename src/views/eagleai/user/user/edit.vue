@@ -28,7 +28,9 @@
       <a-form-item label="性别" field="sex">
         <sa-select v-model="formData.sex" dict="sex" placeholder="请选择性别" />
       </a-form-item>
-      <a-form-item label="头像" field="avatar"> </a-form-item>
+      <a-form-item label="头像" field="avatar">
+        <sa-upload-image v-model="formData.avatar" :rounded="true" />
+      </a-form-item>
       <a-form-item label="邮箱" field="email">
         <a-input v-model="formData.email" placeholder="请输入邮箱" />
       </a-form-item>

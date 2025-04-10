@@ -10,11 +10,9 @@
       <template #tableSearch>
         <a-col :span="8">
           <a-form-item label="用户名" field="user_name">
-            <a-tree-select
+            <a-input
               v-model="searchForm.user_name"
-              :data="[]"
               placeholder="请输入用户名"
-              allow-clear
             />
           </a-form-item>
         </a-col>
@@ -99,7 +97,7 @@ const columns = reactive([
   { title: "头像", dataIndex: "avatar", width: 180 },
   { title: "邮箱", dataIndex: "email", width: 180 },
   { title: "手机", dataIndex: "phone", width: 180 },
-  { title: "状态", dataIndex: "status", width: 180 },
+  { title: "状态", dataIndex: "status_txt", width: 180 },
 ]);
 
 // 页面数据初始化
