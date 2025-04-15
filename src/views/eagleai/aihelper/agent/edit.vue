@@ -51,7 +51,7 @@ const visible = ref(false);
 const loading = ref(false);
 
 let title = computed(() => {
-  return "AI模型" + (mode.value == "add" ? "-新增" : "-编辑");
+  return "智能体" + (mode.value == "add" ? "-新增" : "-编辑");
 });
 const formData = reactive({
   id: "",

@@ -16,39 +16,14 @@
       :rules="rules"
       :auto-label-width="true"
     >
-      <a-form-item label="名称" field="name">
-        <a-input v-model="formData.name" placeholder="请输入名称" />
+      <a-form-item label="智能体名称" field="name">
+        <a-input v-model="formData.name" placeholder="请输入智能体名称" />
       </a-form-item>
-      <a-form-item label="头像" field="avatar">
-        <sa-upload-image v-model="formData.avatar" :rounded="true" />
+      <a-form-item label="API" field="API">
+        <a-input v-model="formData.api" placeholder="请输入API接口地址" />
       </a-form-item>
-      <a-form-item label="简介" field="desc">
-        <a-textarea v-model="formData.desc" placeholder="请输入简介" />
-      </a-form-item>
-      <a-form-item label="角色提示" field="prompt">
-        <a-textarea v-model="formData.prompt" placeholder="请输入提示词" />
-      </a-form-item>
-      <a-form-item label="问候语" field="greeting">
-        <a-textarea v-model="formData.greeting" placeholder="请输入问候语" />
-      </a-form-item>
-      <a-form-item label="模型类型" field="type">
-        <sa-select
-          v-model="formData.type"
-          dict="ai_model_type"
-          placeholder="请选择模型类型"
-        />
-      </a-form-item>
-      <a-form-item label="上下文" field="context_num">
-        <a-input v-model="formData.context_num" placeholder="请输入上下文数" />
-      </a-form-item>
-      <a-form-item label="最大tokens" field="max_tokens">
-        <a-input v-model="formData.max_tokens" placeholder="请输入最大tokens" />
-      </a-form-item>
-      <a-form-item label="温度" field="temperature">
-        <a-input v-model="formData.temperature" placeholder="请输入温度" />
-      </a-form-item>
-      <a-form-item label="安装量" field="preinstalled">
-        <a-input v-model="formData.preinstalled" placeholder="请输入安装量" />
+      <a-form-item label="API-KEY" field="api_key">
+        <a-input v-model="formData.api_key" placeholder="请输入API KEY" />
       </a-form-item>
       <a-form-item label="状态" field="status">
         <sa-select

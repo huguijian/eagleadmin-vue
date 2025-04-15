@@ -9,13 +9,28 @@
       <!-- 搜索区 tableSearch -->
       <template #tableSearch>
         <a-col :span="8">
-          <a-form-item label="模型名称" field="name">
-            <a-input v-model="searchForm.name" placeholder="请输入模型名称" />
+          <a-form-item label="角色" field="name">
+            <a-input v-model="searchForm.name" placeholder="请输入角色名称" />
           </a-form-item>
         </a-col>
         <a-col :span="8">
-          <a-form-item label="模型处理器" field="handler">
-            <a-input v-model="searchForm.desc" placeholder="请输入模型处理器" />
+          <a-form-item label="模型" field="model">
+            <sa-select
+              v-model="searchForm.model"
+              dict="ai_model_type"
+              placeholder="请选择模型类型"
+            />
+          </a-form-item>
+        </a-col>
+
+        <a-col :span="8">
+          <a-form-item label="内容" field="content">
+            <a-input v-model="searchForm.content" placeholder="请输入内容" />
+          </a-form-item>
+        </a-col>
+        <a-col :span="8">
+          <a-form-item label="IP" field="ip">
+            <a-input v-model="searchForm.ip" placeholder="请输入IP地址" />
           </a-form-item>
         </a-col>
       </template>
@@ -30,7 +45,7 @@
 import { onMounted, ref, reactive } from "vue";
 import { Message } from "@arco-design/web-vue";
 import EditForm from "./edit.vue";
-import api from "../../api/aihelper/aimodel";
+import api from "../../api/aihelper/message";
 
 // 引用定义
 const crudRef = ref();
@@ -39,7 +54,9 @@ const editRef = ref();
 // 搜索表单
 const searchForm = ref({
   name: "",
-  handler: "",
+  model: "",
+  content: "",
+  ip: "",
 });
 
 // SaTable 基础配置
@@ -97,13 +114,11 @@ const options = reactive({
 // SaTable 列配置
 const columns = reactive([
   { title: "ID", dataIndex: "id", width: 180 },
-  { title: "模型名称", dataIndex: "name", width: 180 },
-  { title: "模型类型", dataIndex: "type", width: 180 },
-  { title: "模型处理器", dataIndex: "handler", width: 180 },
-  { title: "支持的模型", dataIndex: "models", width: 180 },
-  { title: "优先级", dataIndex: "priority", width: 180 },
-  { title: "显示余额", dataIndex: "balance_visible", width: 180 },
-  { title: "状态", dataIndex: "status", width: 180 },
+  { title: "用户", dataIndex: "nick_name", width: 180 },
+  { title: "角色", dataIndex: "role", width: 180 },
+  { title: "模型", dataIndex: "model", width: 180 },
+  { title: "内容", dataIndex: "input", width: 180 },
+  { title: "IP", dataIndex: "status", width: 180 },
 ]);
 
 // 页面数据初始化
