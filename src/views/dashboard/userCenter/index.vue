@@ -6,7 +6,10 @@
       </div>
       <div>
         <a-tag size="large" class="mt-3 rounded-full" color="#165dff">
-          {{ (userStore.user && userStore.user.nick_name) || (userStore.user && userStore.user.username) }}
+          {{
+            (userStore.user && userStore.user.nick_name) ||
+            (userStore.user && userStore.user.username)
+          }}
         </a-tag>
       </div>
     </div>
@@ -25,19 +28,30 @@
       <div class="ma-content-block w-full lg:w-6/12 mt-3 p-4 ml-0 lg:ml-3">
         <a-tabs type="rounded">
           <a-tab-pane key="login-log" title="登录日志">
-            <a-timeline class="pl-5 mt-3" v-if="loginLogList && loginLogList.length">
-              <a-timeline-item :label="`地理位置；${item.ip_location}，操作系统：${item.os}`" v-for="(item, idx) in loginLogList" :key="idx">
+            <a-timeline
+              class="pl-5 mt-3"
+              v-if="loginLogList && loginLogList.length"
+            >
+              <a-timeline-item
+                :label="`地理位置；${item.ip_location}，操作系统：${item.os}`"
+                v-for="(item, idx) in loginLogList"
+                :key="idx"
+              >
                 您于 {{ item.login_time }} 登录系统，{{ item.message }}
               </a-timeline-item>
             </a-timeline>
             <a-empty v-else />
           </a-tab-pane>
           <a-tab-pane key="operation-log" title="操作日志">
-            <a-timeline class="pl-5 mt-3" v-if="operationLogList && operationLogList.length">
+            <a-timeline
+              class="pl-5 mt-3"
+              v-if="operationLogList && operationLogList.length"
+            >
               <a-timeline-item
                 :label="`地理位置；${item.ip_location}，方式：${item.method}，路由：${item.router}`"
                 v-for="(item, idx) in operationLogList"
-                :key="idx">
+                :key="idx"
+              >
                 您于 {{ item.create_time }} 执行了 {{ item.service_name }}
               </a-timeline-item>
             </a-timeline>
@@ -50,54 +64,65 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, watch } from 'vue'
-import { useUserStore } from '@/store'
-import { Message } from '@arco-design/web-vue'
-import user from '@/api/system/user'
-import commonApi from '@/api/common'
+import { ref, reactive, onMounted, watch } from "vue";
+import { useUserStore } from "@/store";
+import { Message } from "@arco-design/web-vue";
+import user from "@/api/system/user";
+import commonApi from "@/api/common";
 
-import ModifyPassword from './components/modifyPassword.vue'
-import UserInfomation from './components/userInfomation.vue'
+import ModifyPassword from "./components/modifyPassword.vue";
+import UserInfomation from "./components/userInfomation.vue";
 
-const userStore = useUserStore()
+const userStore = useUserStore();
 const userInfo = reactive({
   ...userStore.user,
-})
+});
 
-const loginLogList = ref([])
-const operationLogList = ref([])
+const loginLogList = ref([]);
+const operationLogList = ref([]);
 
 const requestParams = reactive({
   limit: 5,
-})
+});
 
 onMounted(() => {
-  commonApi.getLoginLogList(Object.assign(requestParams, { orderBy: 'login_time', orderType: 'desc' })).then((res) => {
-    loginLogList.value = res.data.items
-  })
+  commonApi
+    .getLoginLogList(
+      Object.assign(requestParams, { orderBy: "login_time", orderType: "desc" })
+    )
+    .then((res) => {
+      loginLogList.value = res.data.items;
+    });
 
-  commonApi.getOperationLogList(Object.assign(requestParams, { orderBy: 'create_time', orderType: 'desc' })).then((res) => {
-    operationLogList.value = res.data.items
-  })
-})
+  commonApi
+    .getOperationLogList(
+      Object.assign(requestParams, {
+        orderBy: "create_time",
+        orderType: "desc",
+      })
+    )
+    .then((res) => {
+      operationLogList.value = res.data.items;
+    });
+});
 
-userInfo.avatar = userStore?.user?.avatar ?? undefined
+userInfo.avatar = userStore?.user?.avatar ?? undefined;
 
 watch(
   () => userInfo.avatar,
   async (newAvatar) => {
     if (newAvatar) {
-      const response = await user.updateInfo({ avatar: newAvatar })
+      const response = await user.savePersonal({ avatar: newAvatar });
       if (response.code === 0) {
-        Message.success('头像修改成功')
-        userStore.user.avatar = newAvatar
+        Message.success("头像修改成功");
+        userStore.user.avatar = newAvatar;
       }
     }
   }
-)
+);
 </script>
 <script>
-export default { name: 'userCenter' }
+export default { name: "userCenter" };
 </script>
 
 <style scoped>
@@ -107,7 +132,7 @@ export default { name: 'userCenter' }
 .user-header {
   width: 100%;
   height: 200px;
-  background: url('@/assets/userBanner.jpg') no-repeat;
+  background: url("@/assets/userBanner.jpg") no-repeat;
   background-size: cover;
 }
 </style>

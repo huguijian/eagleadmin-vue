@@ -40,7 +40,7 @@ const formData = reactive({
 
 const modifyInfo = async (data) => {
   data.values.avatar = userStore.user.avatar;
-  const response = await user.updateInfo(data.values);
+  const response = await user.savePersonal(data.values);
   if (response.code === 0) {
     Message.success(response.msg);
     userStore.user = data.values;

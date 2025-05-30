@@ -24,7 +24,17 @@ export default {
       params
     })
   },
-
+   /**
+   * 用户更新个人资料
+   * @returns
+   */
+   savePersonal(data = {}) {
+    return request({
+      url: '/core/auth/user/savepersonal',
+      method: 'post',
+      data
+    })
+  },
   /**
    * 读取数据
    * @returns
