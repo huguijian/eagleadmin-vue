@@ -5,7 +5,7 @@
 
 ## 简介
 
-`EagleAdmin Vue` 1.0.0
+`EagleAdmin Vue`
 
 ## 安装使用
 
